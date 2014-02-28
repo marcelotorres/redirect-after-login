@@ -1,0 +1,10 @@
+/**
+ * Theme Options styles and Metaboxes styles.
+*/
+
+.mtral h4{margin:7px 0 5px 0 !important;}
+.mtral label, .mtral label.custom{width:150px;padding:0 0 5px 10px}
+.mtral label.custom{width:150px;}
+.mtral.pt_BR label.custom{width:240px;}
+.mtral select{width:200px;}
+.mtral input[type="text"]{width:300px;}
