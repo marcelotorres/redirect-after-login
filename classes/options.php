@@ -66,7 +66,7 @@ class MTRAL_Options {
 
 			// Theme Options.
 			wp_enqueue_style( 'mtral-admin', plugins_url('../assets/css/admin.css', __FILE__), array(), null, 'all' );
-			wp_enqueue_script( 'mtral-admin', plugins_url('../assets/js/admin.js', __FILE__), array( 'jquery' ), null, true );
+			//wp_enqueue_script( 'mtral-admin', plugins_url('../assets/js/admin.js', __FILE__), array( 'jquery' ), null, true );
 			
 		}
 	}
@@ -306,8 +306,9 @@ class MTRAL_Options {
 			$admin_pages = $setting[$id.'_'.$role_slug];
 			$admin_custom_pages = $setting[$id.'_custom_url_'.$role_slug];
 					
+			$html .= '<div class="block">';
 			$html .= sprintf( '<h4>%s</h4>', translate_user_role($role_options['name']) );
-			$html .= sprintf( '<label for="%1$s_%2$s">%3$s</label>', $id, $role_slug, __('Choose the page', 'mtral') );
+			$html .= sprintf( '<label for="%1$s_%2$s"><span>%3$s</span>', $id, $role_slug, __('Choose the page', 'mtral') );
 			$html .= sprintf( '<select id="%1$s_%4$s" name="%2$s[%1$s_%4$s]"%3$s>', $id, $tab, $this->build_field_attributes( $attrs ), $role_slug );
 			
 			//List menu items
@@ -345,10 +346,10 @@ class MTRAL_Options {
 						}						
 					}
 			}
-			$html .= '</select>';			
-			$html .= sprintf( '<label class="custom" for="%1$s_custom_url_%3$s">%2$s</label>', $id, __('Or type a custom URL', 'mtral'), $role_slug );
-			$html .= sprintf( '<input type="text" id="%1$s_custom_url_%4$s" name="%2$s[%1$s_custom_url_%4$s]"%3$s value="%5$s" />', $id, $tab, $this->build_field_attributes( $attrs ), $role_slug, $admin_custom_pages );
-			$html .= '<br />';		
+			$html .= '</select></label>';			
+			$html .= sprintf( '<label class="custom" for="%1$s_custom_url_%3$s"><span>%2$s</span>', $id, __('Or type a custom URL', 'mtral'), $role_slug );
+			$html .= sprintf( '<input type="text" id="%1$s_custom_url_%4$s" name="%2$s[%1$s_custom_url_%4$s]"%3$s value="%5$s" /></label>', $id, $tab, $this->build_field_attributes( $attrs ), $role_slug, $admin_custom_pages );
+			$html .= '</div>';		
 		}
 		$html .= '</fieldset>';
 		

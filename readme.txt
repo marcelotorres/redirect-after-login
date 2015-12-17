@@ -1,10 +1,10 @@
 === Redirect After Login ===
 Contributors: marcelotorres
 Tags: login, redirect, redirect_to
-Donate link: http://www.marcelotorresweb.com/redirect-after-login/
+Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=G85Z9XFXWWHCY
 Requires at least: 3.6
-Tested up to: 3.8.1
-Stable tag: 0.1
+Tested up to: 4.4
+Stable tag: 0.1.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -33,3 +33,7 @@ You can contribute to the source code in our [GitHub](https://github.com/marcelo
 = 0.1 =
 
 * Initial version.
+
+= 0.1.5 =
+
+* Fixed CSS bugs.
