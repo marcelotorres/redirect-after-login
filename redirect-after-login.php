@@ -37,10 +37,10 @@ load_plugin_textdomain( 'mtral', false, dirname( plugin_basename( __FILE__ ) ) .
 // Include admin settings
 require_once(MTRAL_PATH.'redirect-after-login-admin.php');
 
-function redirect_after_login_per_role()
+function redirect_after_login_per_role( $redirect_to, $requested_redirect_to, $user )
 {
 	//retrieve current user info 
-	global $wp_roles, $user;
+	global $wp_roles;
 	    
 	$roles = $wp_roles->roles;
 	$setting = get_option('mtral_settings');
@@ -62,4 +62,11 @@ function redirect_after_login_per_role()
     }
 	
 }
+
+function redirect_after_login_per_role_wc( $redirect_to, $wc_user )
+{
+	return redirect_after_login_per_role( $redirect_to, '', $wc_user );
+}
+
 add_filter("login_redirect", "redirect_after_login_per_role", 10, 3);
+add_filter("woocommerce_login_redirect", "redirect_after_login_per_role_wc", 10, 3);
